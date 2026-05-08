@@ -1,0 +1,34 @@
+# DubSync Backend Requirements - RTX 3050 OPTIMIZED
+# For 4GB VRAM GPU
+# Python 3.10+
+# CUDA 11.8
+# cuDNN 8.6
+
+# Core Framework
+fastapi==0.104.1
+uvicorn==0.24.0
+pydantic==2.4.2
+python-multipart==0.0.6
+
+# Audio & Video Processing
+moviepy==1.0.3
+pydub==0.25.1
+scipy==1.11.4
+numpy==1.24.3
+soundfile==0.12.1
+
+# AI/ML Models - No librosa (causes DLL conflicts on Windows)
+deep-translator==1.11.4
+edge-tts==6.1.9
+
+# NOTE: PyTorch should be installed via CONDA (more stable for RTX 3050):
+# conda install pytorch::pytorch torchvision torchaudio -c pytorch -c nvidia
+#
+# Or via pip with CUDA 11.8:
+# pip install --retries 5 --default-timeout=1000 torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+
+# IMPORTANT FOR RTX 3050:
+# After installation, modify backend/lipsync.py:
+# Change: --wav2lip_batch_size 128 → --wav2lip_batch_size 64
+# Change: --face_det_batch_size 4 → --face_det_batch_size 2
+# This reduces memory usage from 8GB to 4GB

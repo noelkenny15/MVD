@@ -1,0 +1,41 @@
+# DubSync Backend Requirements
+# Python 3.10+
+# CUDA 11.8
+# cuDNN 8.6
+
+# Core Framework
+fastapi==0.104.1
+uvicorn==0.24.0
+pydantic==2.4.2
+python-multipart==0.0.6
+
+# Audio & Video Processing
+moviepy==1.0.3
+pydub==0.25.1
+scipy==1.11.4
+numpy==1.24.3
+soundfile==0.12.1
+librosa==0.10.0
+
+# AI/ML Models & Deep Learning
+deep-translator==1.11.4
+edge-tts==6.1.9
+
+# NOTE: PyTorch should be installed separately via conda or pip with CUDA support:
+# conda install pytorch::pytorch torchvision torchaudio -c pytorch -c nvidia
+# OR
+# pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+
+# Optional: For API documentation
+python-jose==3.3.0
+passlib==1.7.4
+
+# Optional: For database (if using)
+sqlalchemy==2.0.23
+
+# Optional: For logging
+python-json-logger==2.0.7
+
+# Optional: For testing
+pytest==7.4.3
+pytest-asyncio==0.21.1
